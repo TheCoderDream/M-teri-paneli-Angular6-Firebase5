@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header">
+
+  </div>
+  <div class="card-block">
+    <form (submit)="addQuestion()">
+      <div class="form-group">
+        <label for="text">Soru: </label>
+        <input type="text" class="form-control" [(ngModel)]="text" name="text" id="text">
+      </div>
+      <div class="form-group">
+        <label for="answer">Cevap: </label>
+        <input type="text" class="form-control" [(ngModel)]="answer" name="answer" id="answer">
+      </div>
+      <button class="btn btn-primary" type="submit">Ekle</button>
+    </form>
+  </div>
+</div>
