@@ -1,15 +1,41 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+
   <div class="container">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">Müşteri Paneli</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-<a class="navbar-brand">FAQapp</a>
+
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item active" *ngIf="isLoggedIN">
+        <a class="nav-link" href="#" routerLink="/"> Admin <span class="sr-only">(current)</span></a>
+      </li>
+
 
     </ul>
+
+    <ul class="navbar-nav ml-auto" >
+      <li class="nav-item " *ngIf="!isLoggedIN && showRegister">
+        <a class="nav-link" href="#" routerLink="/register">Kayıt ol <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item " *ngIf="!isLoggedIN && showRegister">
+        <a class="nav-link" href="#" routerLink="/login">Giriş yap <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item " *ngIf="isLoggedIN">
+        <a class="nav-link" href="#" >{{loggedInUser}}<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item " *ngIf="isLoggedIN">
+        <a class="nav-link" href="#" routerLink="/settings">Ayarlar <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item " *ngIf="isLoggedIN">
+        <a class="nav-link" href="#" (click)="onLogoutClick()">Çıkış yap <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+
   </div>
+
   </div>
 </nav>
 <br><br>

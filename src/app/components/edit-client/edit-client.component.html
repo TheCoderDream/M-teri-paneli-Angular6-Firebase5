@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-md-6">
+    <a href="#" [routerLink]="['/client', id]" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Detaylara geri dön
+    </a>
+
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Bilgileri güncelle
+  </div>
+  <div class="card-block">
+    <form #f="ngForm" (submit)="onSubmit(f)">
+      <div class="form-group">
+        <label for="firstName">Ad</label>
+        <input
+          id="firstName"
+          type="text"
+          class="form-control"
+          [(ngModel)]="client.firstName"
+          name="firstName"
+          #clientFirstName="ngModel"
+          minlength="2"
+          required
+        >
+        <div *ngIf="clientFirstName.invalid && clientFirstName.touched" class="alert alert-danger">
+          Bu alan gereklidir
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Soyad</label>
+        <input
+          id="lastName"
+          type="text"
+          class="form-control"
+          [(ngModel)]="client.lastName"
+          name="lastName"
+          #clientLastName="ngModel"
+          minlength="2"
+          required
+        >
+        <div *ngIf="clientLastName.invalid && clientLastName.touched" class="alert alert-danger">
+          Bu alan gereklidir
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="text"
+          class="form-control"
+          [(ngModel)]="client.email"
+          name="email"
+          #clientEmail="ngModel"
+          minlength="2"
+          required
+        >
+        <div *ngIf="clientEmail.invalid && clientEmail.touched" class="alert alert-danger">
+          Bu alan gereklidir
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefon</label>
+        <input
+          id="phone"
+          type="text"
+          class="form-control"
+          [(ngModel)]="client.phone"
+          name="phone"
+          #clientPhone="ngModel"
+          minlength="10"
+          required
+        >
+        <div *ngIf="clientPhone.invalid && clientPhone.touched" class="alert alert-danger">
+          Bu alan gereklidir
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="balance">Bakiye</label>
+        <input
+          id="balance"
+          type="number"
+          class="form-control"
+          [(ngModel)]="client.balance"
+          name="balance"
+          #clientBalance="ngModel"
+          [disabled]="disableBalanceOnEdit"
+
+        >
+      </div>
+
+      <input type="submit" value="gönder" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>

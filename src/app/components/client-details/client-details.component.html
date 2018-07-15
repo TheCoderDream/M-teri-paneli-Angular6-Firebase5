@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-6">
+
+    <a routerLink="/" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Anasayfaya dön</a>
+  </div>
+  <div class="col-md-6">
+    <div class="btn-group pull-right">
+      <a [routerLink]="['/edit-client', id]" class="btn btn-secondary">Düzenle</a>
+      <button class="btn btn-danger" (click)="onDeleteClick()">Sil</button>
+    </div>
+
+  </div>
+</div>
+<hr>
+<div class="card" *ngIf="client">
+  <h3 class="card-header">{{client.firstName}} {{client.lastName}}</h3>
+  <div class="card-block container my-2">
+    <div class="row">
+      <div class="col-md-8">
+        <h4>Müşteri ID: {{client.$key}}</h4>
+      </div>
+      <div class="col-md-4">
+        <h3 class="pull-right">
+          Bakiye: <span [class.text-danger]="hasBalance" [class.text-success]="!hasBalance">{{client.balance | currency: 'TL': true}}</span>
+          <small><a (click)="showBalanceUpdateInput = !showBalanceUpdateInput"><i class="fa fa-pencil"></i></a></small>
+        </h3>
+        <div class="clear-fix">
+          <form *ngIf="showBalanceUpdateInput" (click)="updateBalance(id)" class="form-inline pull-right">
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]="client.balance" name="balance">
+            </div>
+            <button class="btn btn-primary" type="submit">Güncelle</button>
+          </form>
+
+
+        </div>
+
+      </div>
+    </div>
+    <hr>
+    <ul class="list-group">
+      <li class="list-group-item">Email: {{client.email}}</li>
+      <li class="list-group-item">Telefon: {{client.phone}}</li>
+    </ul>
+  </div>
+</div>

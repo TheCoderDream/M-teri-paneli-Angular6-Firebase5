@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="card p-4">
+      <div class="card-block">
+        <img class="mx-auto d-block" src="/assets/img/musteri-paneli.png" alt="">
+        <h1 class="text-center">Kayıt ol</h1>
+        <form (submit)="onSubmit()">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" [(ngModel)]="email" id="email" class="form-control" name="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Şifre</label>
+            <input type="email" [(ngModel)]="password" id="password" class="form-control" name="password">
+          </div>
+          <button class="input btn btn-primary btn-block" type="submit">Gönder</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
